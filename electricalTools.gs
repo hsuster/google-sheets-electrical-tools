@@ -90,11 +90,11 @@ function filterPullSection(returnSkipped){
       filteredArray.push(rowArr);
     }
     else{
+      bomSheet.hideRows(i + firstItemRow);
       // Ignore rows without part numbers or the pasted Type row
       if(!(rowArr[0] === undefined || rowArr[0] === "" || rowArr[0] === "Type")){
         // Push the part number that is skipped
         skippedArray.push(rowArr[0]);
-        bomSheet.hideRows(i + firstItemRow);
       }
     }
   }
@@ -394,5 +394,3 @@ function recoverBackup(){
     ss.getSheetByName("EBOM").getRange(1, 1, backupSheet.getMaxRows(), backupSheet.getMaxColumns()).setValues(backupData);
   }
 }
-  
-  
